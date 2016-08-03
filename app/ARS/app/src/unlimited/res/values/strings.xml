@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ULTD ARS</string>
+    <string name="ars_error">ULTD ARS Error</string>
+    <string name="ars_username"></string>
+    <string name="ars_password"></string>
+
+</resources>

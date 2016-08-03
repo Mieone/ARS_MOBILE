@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimary1">#c74c3c</color>
+    <color name="colorPrimary2">#01843e</color>-->
+    <color name="colorPrimary">#1c1b17</color>
+    <color name="colorPrimary1">#1c1b17</color>
+    <!--  <color name="colorPrimaryDark">#1976D2</color>
+      <color name="colorPrimaryDark1">#8e3429</color>
+      <color name="colorPrimaryDark2">#00381a</color>-->
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimaryDark1">#000000</color>
+    <!-- <color name="colorAccent">#c74c3c</color>
+     <color name="colorAccent1">#3cc74c</color>
+     <color name="colorAccent2">#018480</color>-->
+    <color name="colorAccent">#01843e</color>
+    <color name="colorAccent1">#01843e</color>
+
+
+    <color name="white">#ffffff</color>
+
+    <color name="login_btn_txt">#ffffff</color>
+    <color name="login_btn_bg">#01843e</color>
+    <color name="login_field_txt">#ffffff</color>
+
+    <color name="black">#000000</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="green">#008000</color>
+    <color name="img_back">#1c1b17</color>
+    <color name="pi_text_color">#f4a236</color>
+    <color name="reason_error">#c74c3c</color>
+
+</resources>

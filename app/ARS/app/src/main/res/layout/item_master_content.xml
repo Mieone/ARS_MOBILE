@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/sr_no"
+        android:layout_width="40dip"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp" />
+
+    <TextView
+        android:id="@+id/reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/sr_no"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:textStyle="italic" />
+
+
+</RelativeLayout>
