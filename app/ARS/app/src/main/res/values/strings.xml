@@ -1,0 +1,47 @@
+<resources>
+
+    <string name="app_name">BB ARS</string>
+    <string name="ars_error">BB ARS Error</string>
+    <string name="login_failed">Login Failed</string>
+
+    <string name="ars_username">bb</string>
+    <string name="ars_password">Bbe^ry@M1!</string>
+
+
+    <string name="try_again">Try Again</string>
+    <string name="title_activity_menu_ativity">MenuAtivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="CP">CUT PIECE</string>
+    <string name="CR">CORE</string>
+    <string name="FM">FAST MOVER</string>
+    <string name="NS">NEW STYLE</string>
+    <string name="SM">STYLE GAP</string>
+    <string name="total_allocation">TOTAL</string>
+
+    <string name="Stores_in_ars">Stores on ARS</string>
+    <string name="master_valid">Master Validation Store Level</string>
+    <string name="sell_thru">Sell Thru</string>
+    <string name="store_stock_suff">Store Stock Sufficiency</string>
+    <string name="planogram_adh">Planogram Adherence</string>
+    <string name="mnth_alloc_sum">Weekly Allocation Summary</string>
+    <string name="mnth_alloc_styles">Weekly Allocation Style Summary</string>
+    <string name="mnth_alloc_sub_brand">Weekly Allocation Sub - Brand Summary</string>
+    <string name="high"> \u003e 105%</string>
+    <string name="medium">90-105%</string>
+    <string name="low">\u003c 90%</string>
+    <string name="quantity_norm">Planogram Adherence - Quantity Norm</string>
+    <string name="options_norm">Planogram Adherence - Options Norm</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">password</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="internet_error">Check the network connection</string>
+    <string name="network_error">Please check the network connection\nand\n refresh the page</string>
+
+</resources>

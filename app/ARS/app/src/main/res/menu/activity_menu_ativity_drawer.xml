@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/brands"
+        android:checkableBehavior="single"></group>
+
+    <!--<group android:checkableBehavior="single">
+
+    <item
+    android:id="@+id/dashboard"
+    android:icon="@mipmap/dashboard"
+    android:title="Dashboard" />
+    &lt;!&ndash;<item
+    android:id="@+id/reports"
+    android:icon="@mipmap/cube"
+    android:title="Reports" />&ndash;&gt;
+
+    <item
+    android:id="@+id/logout"
+    android:icon="@mipmap/logout"
+    android:title="Logout" />
+
+    </group>-->
+
+</menu>
