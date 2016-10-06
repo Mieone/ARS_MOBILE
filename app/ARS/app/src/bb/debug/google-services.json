@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "551273555848",
+    "firebase_url": "https://bb-ars.firebaseio.com",
+    "project_id": "bb-ars",
+    "storage_bucket": "bb-ars.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551273555848:android:e28b3bc75707add1",
+        "android_client_info": {
+          "package_name": "heardun.in.ars.bb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551273555848-j7604abamra8o9t4q73lj3oqvr0prgrk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "heardun.in.ars.bb",
+            "certificate_hash": "4C0C62D579D207F169F8FD3B73341F26EF4EB53D"
+          }
+        },
+        {
+          "client_id": "551273555848-hsdumpat2utpon16mm4aquut1m0cqnp9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWgZ4P4Rlk7zZHgB0ItYFZm--DSSD9_gA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551273555848-hsdumpat2utpon16mm4aquut1m0cqnp9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

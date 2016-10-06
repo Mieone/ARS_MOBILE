@@ -1,9 +1,14 @@
 package heardun.in.ars.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 
@@ -24,13 +29,19 @@ public class MainActivity extends Activity {
 
         utils = new Utils(this);
 
-        utils.showLog(TAG, "main activity", Config.MainActivity);
+        utils.showLog(TAG, "device id is " + utils.getDeviceID(), Config.MainActivity);
 
         utils.getwindowsize();
         if (utils.usersession.getusersession().isEmpty())
             startActivity(new Intent(this, LoginActivity.class));
         else
             startActivity(new Intent(this, MenuAtivity.class));
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
     }
 }

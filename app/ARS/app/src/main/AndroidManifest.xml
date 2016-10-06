@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".ArsApplication"
@@ -38,6 +39,20 @@
             android:name=".dashboard.DashBoardDetailActivity"
             android:configChanges="orientation|screenSize"
             android:logo="@mipmap/ic_launcher" />
+
+        <service
+            android:name=".firebase.ARSFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".firebase.ARSFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
 
     </application>
 

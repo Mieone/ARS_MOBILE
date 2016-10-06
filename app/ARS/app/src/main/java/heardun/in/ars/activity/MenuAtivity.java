@@ -1,10 +1,14 @@
 package heardun.in.ars.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -18,6 +22,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -27,6 +32,8 @@ import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.FirebaseInstanceIdService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -53,6 +60,7 @@ import heardun.in.ars.config.Constants;
 import heardun.in.ars.config.Serverconfig;
 import heardun.in.ars.dashboard.Dashboard;
 import heardun.in.ars.doto.BrandsList;
+import heardun.in.ars.firebase.ARSFirebaseInstanceIDService;
 import heardun.in.ars.utils.Utils;
 
 public class MenuAtivity extends AppCompatActivity {
@@ -82,6 +90,7 @@ public class MenuAtivity extends AppCompatActivity {
     Utils utils;
 
     MenuItem mpreviousMenuItem;
+    String toekn1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +102,8 @@ public class MenuAtivity extends AppCompatActivity {
 
         userSession = new Usersession(getApplication());
         setSupportActionBar(toolbar);
+
+
 
         getMenuItems();
 
@@ -122,6 +133,8 @@ public class MenuAtivity extends AppCompatActivity {
                         String sel_item = menuItem.getTitle().toString();
 
                         if (sel_item == Constants.LOGOUT) {
+
+                            // logout_session();
                             userSession.clearsession();
                             startActivity(new Intent(getApplication(), LoginActivity.class));
                             finish();
@@ -323,4 +336,79 @@ public class MenuAtivity extends AppCompatActivity {
             menu.add(Constants.LOGOUT);
         }
     }
+
+    private void logout_session() {
+
+        utils.showProgressBar(progress_bar);
+        network_lay.setVisibility(View.GONE);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Serverconfig.ALBL_BRAND,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        //utils.showLog(TAG, "menu response is " + response, Config.MENUACTIVITY);
+                        try {
+                            JSONObject jobj = new JSONObject(response);
+
+                            JSONArray jarray = jobj.optJSONArray("result");
+
+                            if (jarray.length() > 0) {
+
+                                userSession.clearsession();
+                                startActivity(new Intent(getApplication(), LoginActivity.class));
+                                finish();
+
+                            }
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        //  swipe_reffresh.setVisibility(View.GONE);
+                        utils.showProgressBar(progress_bar);
+                    }
+                }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                utils.volleyErrorResposne(error);
+
+                if (error instanceof TimeoutError) {
+                    //   Log.i(TAG, "time out error");
+                } else if (error instanceof NoConnectionError) {
+
+                }
+                utils.showProgressBar(progress_bar);
+                network_lay.setVisibility(View.VISIBLE);
+            }
+
+        }) {
+            @Override
+            public Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+//                params.put(Constants.BRAND_CHANNEL, Constants.BRAND_CHANNEL_DATA);
+                params.put(Constants.DATE, utils.MIEBACH_PARAM_DATE.format(new Date()));
+                params.put(Constants.USERNAME, utils.usersession.getloginname());
+                utils.showLog(TAG, "dash board params are" + params, Config.DASHBOARD);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return utils.volleyHeader();
+            }
+
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                Constants.REQUEST_TIMEOUT,
+                Constants.REQUEST_RETRY_TIMES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        stringRequest.setTag(TAG);
+        ArsRequest.getInstance(this).addToRequestQueue(stringRequest);
+
+    }
+
 }

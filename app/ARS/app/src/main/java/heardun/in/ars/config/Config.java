@@ -11,4 +11,7 @@ public class Config {
     public static boolean MainActivity = true;
     public static boolean DASHBOARDDetails = true;
     public static boolean BarChartItem = true;
+    public static boolean ARSFirebaseMessagingService = true;
+    public static boolean ARSFirebaseInstanceIDService = true;
+
 }

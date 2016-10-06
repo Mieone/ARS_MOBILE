@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -13,7 +14,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NoConnectionError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -23,7 +31,9 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.gms.common.ConnectionResult;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
@@ -48,6 +58,7 @@ import heardun.in.ars.activity.LoginActivity;
 import heardun.in.ars.activity.ResponseError;
 import heardun.in.ars.config.Config;
 import heardun.in.ars.config.Constants;
+import heardun.in.ars.config.Serverconfig;
 import heardun.in.ars.dashboard.DashBoardDetailActivity;
 import heardun.in.ars.dashboard.Dashboard;
 import heardun.in.ars.doto.Allocations;
@@ -62,7 +73,7 @@ public class Utils {
 
     public static String TAG = Utils.class.getSimpleName();
     static Context context;
-    public Usersession usersession;
+    public static Usersession usersession;
     public static DateFormat MiebachDate_formate = new SimpleDateFormat("yyyy-MM-dd");
     public static SimpleDateFormat Miebach_Cust_Date = new SimpleDateFormat("dd MMM");
     public static SimpleDateFormat MIEBACH_PARAM_DATE = new SimpleDateFormat("yyyy-MM-dd");
@@ -109,7 +120,7 @@ public class Utils {
     }
 
     public static void showLog(String tag, String msg, boolean val) {
-        if (val && BuildConfig.DEBUG)
+        if (val)
             Log.wtf(tag, msg);
     }
 
@@ -130,7 +141,7 @@ public class Utils {
         }
     }
 
-    public Map<String, String> volleyHeader() {
+    public static Map<String, String> volleyHeader() {
 
         Map<String, String> headers = new HashMap<String, String>();
         if (usersession.getusersession().length() > 0) {
@@ -794,6 +805,67 @@ public class Utils {
         Constants.GRAPH_PLANO_ADH_ACT_QTY_LIST.clear();
         Constants.GRAPH_PLANO_ADH_OPT_QTY_LIST.clear();
 
+    }
+
+    public static void update_FCMToken(final String token) {
+
+        showLog(TAG, "update fcm token: server call ", Config.UTILS);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Serverconfig.ALBL_BRAND,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+
+                        try {
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                showLog(TAG, "update FCM Token error : " + error.toString(), Config.UTILS);
+
+            }
+
+        }) {
+            @Override
+            public Map<String, String> getParams() throws AuthFailureError {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("fcm_token", token);
+
+                showLog(TAG, "update fcm token params" + params, Config.UTILS);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                return volleyHeader();
+            }
+
+        };
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                Constants.REQUEST_TIMEOUT,
+                Constants.REQUEST_RETRY_TIMES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        stringRequest.setTag(TAG);
+        ArsRequest.getInstance(context).addToRequestQueue(stringRequest);
+
+    }
+
+    //TODO get device id
+    public static String getDeviceID() {
+
+        String device_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+
+        return device_id;
     }
 
 

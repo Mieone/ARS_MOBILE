@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "784428823979",
+    "firebase_url": "https://albl-ars.firebaseio.com",
+    "project_id": "albl-ars",
+    "storage_bucket": "albl-ars.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784428823979:android:ef2da9cfdcfd107c",
+        "android_client_info": {
+          "package_name": "heardun.in.ars.albl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784428823979-5cg00llo8laup9l70bgqiuvttmrcroj2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "heardun.in.ars.albl",
+            "certificate_hash": "C3074687EAB574F2102BBD1A50DBBB4C82DAF49C"
+          }
+        },
+        {
+          "client_id": "784428823979-bnco558gd6buq091r8e78j9spn57hsc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArT2UpiVbPr8o50KNaBotu8xe9BrrrRXc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784428823979-bnco558gd6buq091r8e78j9spn57hsc0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

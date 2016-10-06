@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "136968116221",
+    "firebase_url": "https://ultd-ars.firebaseio.com",
+    "project_id": "ultd-ars",
+    "storage_bucket": "ultd-ars.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136968116221:android:69b1026f0fe55a4b",
+        "android_client_info": {
+          "package_name": "heardun.in.ars.unlimited"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136968116221-44p48mlua5a7oullggdgpra52b1s921g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "heardun.in.ars.unlimited",
+            "certificate_hash": "78764893EB5595DFB60D5FBCE412A1D76ACD3321"
+          }
+        },
+        {
+          "client_id": "136968116221-hll004s8082f7u6doklr26glokqr7anj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLJt6AYxfyvUCaL66ZbNucvJKGEVKkL2o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136968116221-hll004s8082f7u6doklr26glokqr7anj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
