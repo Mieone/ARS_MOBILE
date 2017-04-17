@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
@@ -22,12 +23,13 @@ public class MainActivity extends Activity {
 
     public String TAG = MainActivity.class.getSimpleName();
     Utils utils;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         utils = new Utils(this);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         utils.showLog(TAG, "device id is " + utils.getDeviceID(), Config.MainActivity);
 

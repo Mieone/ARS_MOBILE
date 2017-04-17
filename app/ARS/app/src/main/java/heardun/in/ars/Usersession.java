@@ -38,7 +38,6 @@ public class Usersession {
         return pref.getString(userlogin_name, "");
     }
 
-
     public void set_newFirebaseId(String id) {
         editor.putString(FIREBASE_ID, id);
         editor.commit();
